@@ -1,6 +1,5 @@
 name: 'generate_embeddings'
 on: # rebuild any PRs and main branch changes
-  pull_request:
   push:
     branches:
       - main
@@ -10,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: thorwebdev/supabase-vector-embeddings@v0.0.1
+      - uses: supabase/supabase-vector-embeddings-github-action@v0.0.3
         with:
           supabase-url: 'https://nihypcognmeejjrivnde.supabase.co'
           supabase-service-role-key: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           openai-key: ${{ secrets.OPENAI_KEY }}
-          docs-root-path: 'files/en-us/related'
+          docs-root-path: 'files/en-us/mozilla'
